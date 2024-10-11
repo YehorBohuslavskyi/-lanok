@@ -34,7 +34,7 @@ V systéme sa nachádza viac, ako 15 000 filmov a zobrazuje vám len tie, ktoré
  
 V tomto článku sa podrobne pozrieme na algoritmy spoločnosti Netflix. V súčasnosti je systém Netflix postavený na algoritme, ktorý využíva umelú inteligenciu a strojové učenie. Pozrieme sa aj na umiestnenie odporúčaní na obrazovke, kde je niekoľko typov návrhov. Prvým je „Odporúčané pre vás“, po ňom idú „Trendy“, na stránke sa nachádza aj záložka „New Releases“\cite{Netflix:Recommendation:System}.
 
-Podrobne sa pozrieme aj na filtračné algoritmy, ktoré sa delia na dva hlavné typy. Akú rolu odohrávajú hodnotenia a správania používateľov v rámci algoritmu collaborative filtering a „filtrovanie na základe obsahu“.
+Podrobne sa pozrieme aj na filtračné algoritmy, ktoré sa delia na dva hlavné typy. Akú rolu odohrávajú hodnotenia a správania používateľov v rámci algoritmu „collaborative filtering“ a „filtrovanie na základe obsahu“.
 
 Zaujímavým aspektom sú aj systémy hodnotenia. Patrí medzi ne „Personalizované hodnotenie videa (PVR)“, „Top-N Ranking“, „Rebríček obľúbených filmov“ a „Zoznam zaujímavého obsahu na neskoršie sledovanie“. Každé z týchto hodnotení je personalizované pre jednotlivých používateľov, čo je veľmi zaujímavé.
 
@@ -80,9 +80,9 @@ Filtrovanie na základe obsahu zohľadňuje pri odporúčaní vlastnosti položk
 \section{Systémy Hodnotenia}
  Kľúčovými zložkami odporúčacieho systému spoločnosti Netflix je niekoľko personalizovaných systémov hodnotenia, z ktorých každý je navrhnutý tak, aby zohľadňoval rôzne aspekty zvykov používateľa pri sledovaní. Poďme sa do týchto systémov ponoriť a preskúmať, ako fungujú.
 
-Personalizovaný rebríček videí (PVR) je jedným z najsofistikovanejších nástrojov spoločnosti Netflix a neustále sa prispôsobuje na základe spätnej väzby používateľov. Tento model založený na hlbokom učení využíva historické údaje o zvykoch používateľa pri sledovaní na uprednostňovanie obsahu, ktorý ho pravdepodobne najviac zaujíma. Sila PVR spočíva v jeho schopnosti nielen pochopiť minulé správanie, ale aj predpovedať budúce interakcie.\cite{Argoid}\cite{Data}
+Personalizovaný rebríček videí (PVR) je jedným z najzložitejších nástrojov spoločnosti Netflix a neustále sa prispôsobuje na základe spätnej väzby používateľov. Tento model založený na hlbokom učení využíva historické údaje o zvykoch používateľa pri sledovaní na uprednostňovanie obsahu, ktorý ho pravdepodobne najviac zaujíma. Sila PVR spočíva v jeho schopnosti nielen pochopiť minulé správanie, ale aj predpovedať budúce interakcie.\cite{Argoid}\cite{Data}
 
-Systém Top-N Ranking - ako už názov napovedá, tento model generuje zoznam N najlepších odporúčaní obsahu pre každého používateľa. Robí to kombináciou kolaboratívneho a obsahového filtrovania. Obsah je zoradený na základe toho, ako dobre zodpovedá preferenciám používateľa, čím sa zabezpečí, aby sa najrelevantnejšie tituly zobrazovali na vrchole obrazovky.\cite{Top}
+Systém Top-N Ranking – ako už názov napovedá, tento model generuje zoznam N najlepších odporúčaní obsahu pre každého používateľa. Robí to kombináciou kolaboratívneho a obsahového filtrovania. Obsah je zoradený na základe toho, ako dobre zodpovedá preferenciám používateľa, čím sa zabezpečí, aby sa najrelevantnejšie tituly zobrazovali na vrchole obrazovky.\cite{Top}
 
 
 Poradie obľúbených filmov je ďalší model hodnotenia, ktorý využíva trendový obsah. Netflix používa tento systém na zaraďovanie filmov na základe ich celosvetovej aj regionálnej popularity. Ukážkovým príkladom bolo obdobie pandémie COVID-19, keď prudko stúpol počet divákov filmu Nákaza.\cite{Top} 
@@ -95,7 +95,7 @@ Netflix používa aj systém hodnotenia, ktorý sa zameriava na zaujímavý obsa
 Netflix sa neustále zlepšuje prostredníctvom A/B testovania. Netflix pravidelne testuje varianty svojich odporúčacích algoritmov na rôznych skupinách používateľov a analyzuje, ktoré modely vedú k vyššej angažovanosti a spokojnosti.\cite{Ranking:System}
 
 \section{Typy Údajov v Netflix}
-Cesta spoločnosti Netflix k personalizácii sa začína zberom údajov. A nejde len o to, aké seriály sa vám páčia. Netflix analyzuje všetko od žánrov, ktoré preferujete, až po režisérov, ktorých sledujete, dĺžku sledovania a dennú dobu. Nie je to len súbor údajov - je to základom schopnosti spoločnosti Netflix prispôsobiť váš zážitok zo sledovania. Vďaka viac ako 1 300 klastrom odporúčaní Netflix vie nielen to, že máte radi thrillery; vie, že máte radi psychologické thrillery so silnými ženskými hrdinkami, ktoré sledujete väčšinou cez víkend večer.\cite{Bennett}\cite{Data}
+Cesta spoločnosti Netflix k personalizácii sa začína zberom údajov. A nejde len o to, aké seriály sa vám páčia. Netflix analyzuje všetko od žánrov, ktoré preferujete, až po režisérov, ktorých sledujete, dĺžku sledovania a dennú dobu. Nie je to len súbor údajov – je to základom schopnosti spoločnosti Netflix prispôsobiť váš zážitok zo sledovania. Vďaka viac ako 1 300 klastrom odporúčaní Netflix vie nielen to, že máte radi thrillery; vie, že máte radi psychologické thrillery so silnými ženskými hrdinkami, ktoré sledujete väčšinou cez víkend večer.\cite{Bennett}\cite{Data}
 
 \section{Záver}
 Odporúčací systém Netflix je zložitý mechanizmus na spracovanie veľkého množstva údajov a preferencií používateľov. Je to kľúčový nástroj na udržanie záujmu používateľov a na to, aby sa nestratili v obrovskej knižnici obsahu.
