@@ -66,8 +66,13 @@ Na základe kombinácie týchto prístupov sa vytvárajú personalizované odpor
 \end{figure}
 
 \section{Filtračné algoritmy}
-Porovnanie a vysvetlenie algoritmov collaborative filtering a filtrovania na základe obsahu.
-Vplyv hodnotení a správania používateľov na úspešnosť algoritmov.
+Netflix používa dva typy filtrovania: kolaboratívne filtrovanie a filtrovanie podľa obsahu. Rozdiel môžete rozoznať podľa názvu, ale poďme sa naň pozrieť bližšie.  
+
+Kolaboratívne filtrovanie je algoritmus, ktorý pomáha odhadnúť záujmy nového používateľa na základe akcií predchádzajúcich členov cieľového publika, rozdeľuje používateľov podľa zadaných charakteristík. Najprv identifikuje podobné záujmy a potom hľadá podobné skóre. Každý používateľ dostane takzvanú váhu. Keď sa váha niekoľkých návštevníkov stane maximálne podobnou, sú spojení do skupiny „susedov“ a zobrazí sa im rovnaký obsah.\cite{Collaborative:Filtering}
+
+Filtrovanie na základe obsahu zohľadňuje pri odporúčaní vlastnosti položky a preferencie používateľa. Tento prístup zahŕňa analýzu samotného obsahu, napríklad filmových žánrov, hercov alebo kľúčových slov, a jeho porovnanie s predchádzajúcimi preferenciami používateľov.\cite{Linkedin}
+
+
 
 \begin{figure}[h!]
   \centering
