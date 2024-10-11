@@ -1,4 +1,4 @@
-\documentclass[10pt,twoside,slovak,a4paper]{article}
+\documentclass[10pt,slovak,a4paper]{article}
 
 \usepackage[slovak]{babel}
 \usepackage[IL2]{fontenc} 
@@ -19,7 +19,7 @@
 	{\small \texttt{xbohuslavkyi@stuba.sk}}
 	}
 
-\date{\small 3. oktober 2024}
+\date{\small 17. oktober 2024}
 
 \begin{document}
 
@@ -33,9 +33,9 @@
 \begin{abstract}
 Túto tému som si vybral, pretože je veľmi zaujímavé, ako technológie a umelá inteligencia(ktorá je v súčasnosti jednou z najrozvíjajúcejších sa tém) ovplyvňujú naše každodenné rozhodovanie o tom, čo sledujeme. Ja som zvedavý, že ako po zhliadnutí jedného tureckého filmu, ktorý som ani neohodnotil, sa mi v odporúčaniach začali objavovať podobné filmy. 
 
-V systéme sa nachádza viac, ako 15 000 filmov a zobrazuje vám len tie, ktoré sa vám budú páčiť (neskôr dozvieme sa, ako to funguje). Fakt: ani jeden používateľ Netflix nebol by schopný si samostatne nájsť film alebo seriál, ktorý by sa mu páčil bez požívania algoritmu odporúčania filmov \cite{netflixRecAlgorithm}.
+V systéme sa nachádza viac, ako 15 000 filmov a zobrazuje vám len tie, ktoré sa vám budú páčiť (neskôr dozvieme sa, ako to funguje). Fakt: ani jeden používateľ Netflix nebol by schopný si samostatne nájsť film alebo seriál, ktorý by sa mu páčil bez požívania algoritmu odporúčania filmov \cite{Netflix:Algorithm}.
  
-V tomto článku sa podrobne pozrieme na algoritmy spoločnosti Netflix. V súčasnosti je systém Netflix postavený na algoritme, ktorý využíva umelú inteligenciu a strojové učenie. Pozrieme sa aj na umiestnenie odporúčaní na obrazovke, kde je niekoľko typov návrhov. Prvým je „Odporúčané pre vás“, po ňom idú „Trendy“, na stránke sa nachádza aj záložka „New Releases“.
+V tomto článku sa podrobne pozrieme na algoritmy spoločnosti Netflix. V súčasnosti je systém Netflix postavený na algoritme, ktorý využíva umelú inteligenciu a strojové učenie. Pozrieme sa aj na umiestnenie odporúčaní na obrazovke, kde je niekoľko typov návrhov. Prvým je „Odporúčané pre vás“, po ňom idú „Trendy“, na stránke sa nachádza aj záložka „New Releases“\cite{Netflix:Recommendation:System}.
 
 Podrobne sa pozrieme aj na filtračné algoritmy, ktoré sa delia na dva hlavné typy. Akú rolu odohrávajú hodnotenia a správania používateľov v rámci algoritmu collaborative filtering a „filtrovanie na základe obsahu“.
 
@@ -45,12 +45,19 @@ V rámci článku sa budeme venovať aj typom údajov, ktoré Netflix používa.
 
 \end{abstract}
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=1\textwidth]{Images/Filtering_pdf.pdf} % Adjust width as needed
-  \caption{Type of Filtering}
-\end{figure}
+\section{Úvod}
+Cieľom spoločnosti Netflix je používať odporúčacie algoritmy na maximalizáciu spokojnosti
+používateľov. Hlavným cieľom je prispôsobiť obsah každému jednotlivému používateľovi.
 
+Netflix má obrovskú knižnicu obsahu a obmedzené rozhranie obrazovky, čo veľmi sťažuje odporúčanie relevantného obsahu, a každý používateľ má iný vkus, preferencie a zvyky pri sledovaní, takže personalizácia musí byť veľmi presná.\cite{Bennett}
+Čo robí Netflix na dosiahnutie tohto cieľa, sa dozviete po tomto článku.
+
+\section{Technológie a Umelá inteligencia v Netflix}
+V súčasnosti veľké spoločnosti v IT priemysle využívajú umelú inteligenciu, čo nezostalo bez povšimnutia spoločnosti Netflix, ktorá kombinuje niekoľko modelov a prístupov (tzv. ensemble learning) na vytvorenie najlepších odporúčaní.\cite{Bennett}
+
+\section{Typy Odporúčaní na Netflix}
+Netflix používa dvoj úrovňový systém hodnotenia založený na riadkoch, čo to znamená? Obsah je hodnotený dvakrát, v stĺpcoch a v každom riadku, ako sa dozviete v článku ďalej.
+Na základe kombinácie týchto prístupov sa vytvárajú personalizované odporúčania pre konkrétneho používateľa.\cite{Habr}
 
 \begin{figure}[h!]
   \centering
@@ -58,43 +65,30 @@ V rámci článku sa budeme venovať aj typom údajov, ktoré Netflix používa.
   \caption{Recommendation System}
 \end{figure}
 
-\section{Úvod}
-Úvod do problematiky algoritmov odporúčania na platforme Netflix.
-Krátke zhrnutie vplyvu technológií a umelé inteligencie na naše rozhodovanie pri výbere obsahu na sledovanie.
-
-\section{Technológie a Umelá inteligencia v Netflix}
-Vplyv technológií a umelé inteligencie na dnešné odporúčacie systémy.
-Vývoj algoritmov odporúčania na Netflixu a ich súčasný stav.
-
-\section{Typy Odporúčaní na Netflix}
-Detailné vysvetlenie rôznych typov odporúčaní (napr. Odporúčané pre vás, Trendy, Nové vydania) a ich úloha v navigácii používateľov.
-
 \section{Filtračné algoritmy}
 Porovnanie a vysvetlenie algoritmov collaborative filtering a filtrovania na základe obsahu.
 Vplyv hodnotení a správania používateľov na úspešnosť algoritmov.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{Images/Filtering_pdf.pdf} % Adjust width as needed
+  \caption{Type of Filtering}
+\end{figure}
 
 \section{Systémy Hodnotenia}
 Prehľad o rôznych systémoch hodnotenia (Personalizované hodnotenie videa, Top-N Ranking, Rebríčky obľúbených filmov, Zoznam zaujímavého obsahu na neskoršie sledovanie).
 Ako tieto systémy prispievajú k osobnej skúsenosti používateľov.
 
 \section{Typy Údajov v Netflix}
-Kategórie základných údajov (interakcie používateľa, histórie sledovania).
-Význam dodatočných informácií (žánre, korelačné údaje, informácie o obsahu).
+Spoločnosť Netflix tiež zhromažďuje množstvo údajov o svojich používateľoch, ktoré používa na optimalizáciu odporúčaní. Možno vás zaujíma, čo sú to za údaje a ako ich najväčšia online platforma využíva, aj to sa dozviete v tomto článku.\cite{Bennett}
 
 \section{Vplyv špecifickejších informácií}
 Analýza vplyvu denného času, používaného zariadenia a priemerného času sledovania na odporúčacie algoritmy Netflixu.
 
 \section{Záver}
-Zhodnotenie významu algoritmov odporúčania pre Netflix a ich vplyv na používateľskú skúsenosť.
-Diskusia o budúcnosti vývoja algoritmov odporúčania.
-\begin{thebibliography}{9}
+Odporúčací systém Netflixu je zložitý mechanizmus, ktorý využíva sofistikované algoritmy na spracovanie veľkého množstva údajov a preferencií používateľov. Je to kľúčový nástroj na udržanie záujmu používateľov a na to, aby sa nestratili v obrovskej knižnici obsahu.
 
-\bibitem{netflixRecAlgorithm} 
-\href{https://stratoflow.com/how-netflix-recommendation-algorithm-work/}{Netflix Recommendation Algorithm}.  
-
-\bibitem{netflixAlgorithm} 
-\href{https://recostream.com/blog/recommendation-system-netflix}{Netflix Algorithm}.  
-
-\end{thebibliography}
+\bibliography{literatura}
+\bibliographystyle{plain}
 
 \end{document}
