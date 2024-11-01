@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 \usepackage{cite}
+\usepackage{float}
 
 \title{Algoritmy odporúčania filmov v Netflix\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2024/25, vedenie: Ing. Richard Marko, PhD}}
 
@@ -23,7 +24,7 @@
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Images/fiit_logo.png} 
+  \includegraphics[width=\textwidth]{Images_tables/fiit_logo.png} 
 \end{figure}
 
 \maketitle
@@ -51,55 +52,117 @@ Netflix má obrovskú knižnicu obsahu a obmedzené rozhranie obrazovky, čo ve�
 Čo robí Netflix na dosiahnutie tohto cieľa, sa dozviete po tomto článku.
 
 \section{Technológie a Umelá inteligencia v Netflix}
-V súčasnosti veľké spoločnosti v IT priemysle využívajú umelú inteligenciu, čo nezostalo bez povšimnutia spoločnosti Netflix, ktorá kombinuje niekoľko modelov a prístupov (tzv. ensemble learning) na vytvorenie najlepších odporúčaní.\cite{Bennett}
+Netflix využíva umelú inteligenciu a strojové učenie na zlepšenie používateľského zážitku. Medzi kľúčové aplikácie týchto technológií patrí
+
+\begin{enumerate}
+    \item \textbf{Odporúčania obsahu}: na základe vašich zvykov a preferencií vám algoritmy spoločnosti Netflix môžu ponúknuť personalizované odporúčania.Analýza údajov zahŕňa aj žáner a obľúbenosť obsahu\cite{AI}.
+    
+    \item \textbf{Personalizované miniatúry}: Ak si zoberieme ako príklad film „Shadow and Bone“, miniatúry filmu sú prispôsobené vašim záujmom a môžu používať obrázky súvisiace s inými populárnymi programami, skrátka čokoľvek, čo upúta vašu pozornosť.\cite{AI}
+    
+    \item \textbf{Kvalita streamovania}: Na zabezpečenie plynulého prehrávania videa využíva Netflix údaje na predpovedanie preťaženia siete a ukladá obsah do medzipamäte na blízkych serveroch, takže si môžete vychutnať filmy bez oneskorenia.\cite{AI} \cite{AI_KS}
+    
+    \item \textbf{Kontrola kvality obsahu}: Pred odporúčaním nového obsahu používateľom prechádza niekoľkými fázami testovania vrátane zvuku a obrazu, aby boli všetci používatelia spokojní.\cite{AI} \cite{AI_KK}
+    
+\end{enumerate}
+
+Táto technológia nielenže zvyšuje spokojnosť používateľov, ale podporuje aj dlhodobú angažovanosť.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Images_tables/AI.jpg}
+  \caption{Systém umelej inteligencie}
+\end{figure}
+
 
 \section{Typy Odporúčaní na Netflix}
-Netflix používa dvoj úrovňový systém hodnotenia založený na riadkoch, čo to znamená? Obsah je hodnotený dvakrát, v stĺpcoch a v každom riadku, ako sa dozviete v článku ďalej.
-Na základe kombinácie týchto prístupov sa vytvárajú personalizované odporúčania pre konkrétneho používateľa.\cite{Habr}
+
+\begin{enumerate}
+    \item \textbf{Odporúčania obsahu}: na základe vašich zvykov a preferencií vám algoritmy spoločnosti Netflix môžu ponúknuť personalizované odporúčania.Analýza údajov zahŕňa aj žáner a obľúbenosť obsahu\cite{Typy_Odp}.
+    
+    \item \textbf{Kolaboratívne filtrovanie}: vytvorením skupín používateľov, ktorí majú podobný vkus, a na základe správania a preferencií používateľov táto metóda navrhuje obsah, ale má problém so studeným štartom.\cite{Typy_Odp}\cite{Habr}
+    
+    \item \textbf{Filtrovanie na základe obsahu}: tento typ filtrovania zhromažďuje údaje, napríklad aký žáner filmu preferujete, akého režiséra alebo akých hercov uprednostňujete, a odporúča vám podobný obsah.\cite{Typy_Odp}
+    
+    \item \textbf{Hybridné modely}: Tento typ kombinuje kolaboratívne filtrovanie a filtrovanie založené na obsahu, pretože len tak sa dá vyriešiť problém studeného štartu.\cite{Typy_Odp}
+
+    \item \textbf{Odporúčania založené na hlbokom učení}:Používajú sofistikované algoritmy umelej inteligencie, ktoré modelujú interakciu používateľa ako postupný rozhodovací proces.\cite{Typy_Odp}\cite{Typy_Odp_Ai}
+\end{enumerate}    
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1\textwidth]{Images/RecommendationSystem_pdf.pdf} % Adjust width as needed
+  \includegraphics[width=1\textwidth]{Images_tables/RecommendationSystem_pdf.pdf}
   \caption{Recommendation System}
 \end{figure}
 
 \section{Filtračné algoritmy}
-Netflix používa dva typy filtrovania: kolaboratívne filtrovanie a filtrovanie podľa obsahu. Rozdiel môžete rozoznať podľa názvu, ale poďme sa naň pozrieť bližšie.  
 
-Kolaboratívne filtrovanie je algoritmus, ktorý pomáha odhadnúť záujmy nového používateľa na základe akcií predchádzajúcich členov cieľového publika, rozdeľuje používateľov podľa zadaných charakteristík. Najprv identifikuje podobné záujmy a potom hľadá podobné skóre. Každý používateľ dostane takzvanú váhu. Keď sa váha niekoľkých návštevníkov stane maximálne podobnou, sú spojení do skupiny „susedov“ a zobrazí sa im rovnaký obsah.\cite{Collaborative:Filtering}
+Netflix používa rôzne typy filtrovania, ako je kolaboratívne filtrovanie, filtrovanie na zaklade obsahu, hybridné modely alebo odporúčania založené na hlbokom učení, ale v tomto článku sa budeme zaoberať len prvými dvoma, pretože sú najpoužívanejšie. 
+Rozdiel medzi nimi spoznáte podľa názvu, ale poďme sa na ne pozrieť bližšie.\cite{Collaborative:Filtering}
 
-Filtrovanie na základe obsahu zohľadňuje pri odporúčaní vlastnosti položky a preferencie používateľa. Tento prístup zahŕňa analýzu samotného obsahu, napríklad filmových žánrov, hercov alebo kľúčových slov, a jeho porovnanie s predchádzajúcimi preferenciami používateľov.\cite{Linkedin}
-
-
+\textbf{Kolaboratívne filtrovanie} je algoritmus, ktorý sleduje, aké sú vaše preferencie pri výbere filmov, a na základe týchto údajov vás zoskupí s ostatnými ľuďmi, ktorí majú podobný vkus. Názornejšie, ako funguje, nájdete na \href{run:Images_tables/Filtering_pdf.pdf}{Obr.3}, kde je graficky znázornená metóda kolaboratívneho filtrovania. Hoci sú na obrázku len 2 ľudia, v skutočnosti ich môže byť 100 alebo viac. Hlavným problémom tohto systému je problém studeného štartu, ktorý sa objavuje ako dôsledok nedostatku údajov o používateľovi alebo filmoch v systéme. Tento problém sa rieši použitím niekoľkých typov filtrovania, ale Netflix sa naďalej snaží tento problém vyriešiť.\cite{Linkedin}Metóda kolaboratívneho filtrovania sa delí na dve ďalšie metódy, prvou je \textbf{Kolaboratívne filtrovanie založené na používateľovi}(v tabulke oznacene ako UBCF), zameriava sa na vyhľadávanie ľudí s podobným vkusom ako vy. Ako presne? Najprv vypočíta podobnosť medzi všetkými používateľmi a v závislosti od výsledku začne odporúčať filmy, ktoré ste ešte nevideli, pričom sa páčia ľuďom s podobným vkusom.\cite{Coll_Filter}
+Druhou čiastkovou metódou je Kolaboratívne \textbf{filtrovanie založené na položkách}(IBCF), líši sa tým, že nehľadá podobnosti medzi ľuďmi, ale medzi položkami, s ktorými ste komunikovali, a odporúča podobné. Ak sa vám napríklad páči film, v ktorom hral Robert Downey Jr, systém vám začne odporúčať filmy alebo seriály, v ktorých hral tento herec.
+Podrobnejšie, aký je medzi nimi rozdiel a aké aspekty zahŕňajú, si môžete pozrieť v nasledujúcej tabuľke.\cite{Coll_Filter}
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1\textwidth]{Images/Filtering_pdf.pdf} % Adjust width as needed
+  \includegraphics[width=1\textwidth]{Images_tables/table_Filter.png} 
+  \caption{UBCF/IBCF}
+\end{figure}
+
+\textbf{Filtrovanie na zaklade obsahu} tento typ filtrovania je veľmi ľahko pochopiteľný, pretože podstatou algoritmu je odporučiť obsah, ktorý je podobný predchádzajúcim výberom používateľa (obrázok 3). Algoritmus venuje pozornosť charakteristikám, ako sú „názov“, „krajina“, „režisér“, „obsadenie“, „uvedené“ a „opis“ filmu/seriálu, aby odporučil filmy, ktoré zodpovedajú vášmu vkusu. Ak napríklad radi sledujete komédie, Netflix vám začne odporúčať filmy s Jackie Chanom alebo komédie s inými populárnymi hercami. Algoritmus tiež uvidí, že máte radi filmy s Jackie Chanom, a začne odporúčať filmy súvisiace s východnou kultúrou, a tak Netflix postupne zachytí vaše preferencie a bude sa stále zlepšovať.\cite{Obs_Filter}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{Images_tables/Filtering_pdf.pdf}
   \caption{Type of Filtering}
 \end{figure}
 
 \section{Systémy Hodnotenia}
  Kľúčovými zložkami odporúčacieho systému spoločnosti Netflix je niekoľko personalizovaných systémov hodnotenia, z ktorých každý je navrhnutý tak, aby zohľadňoval rôzne aspekty zvykov používateľa pri sledovaní. Poďme sa do týchto systémov ponoriť a preskúmať, ako fungujú.
+\begin{enumerate}
+    \item \textbf{Personalizovaný rebríček videí (PVR)} je to jeden z najsofistikovanejších nástrojov, ktoré používa spoločnosť Netflix, pretože dokáže nielen pochopiť minulé správanie, ale aj predpovedať budúce interakcie.\cite{Argoid} Pozrime sa bližšie na to, ako funguje, a začnime tým, že je založený na systéme hlbokého učenia a neustále sa prispôsobuje používateľovi.\cite{Data} Hlavnou myšlienkou je využitie historických údajov, napríklad zvykov používateľa, na identifikáciu vašich zvykov a uprednostnenie obsahu, ktorý vás bude zaujímať. Celkovo poskytuje celkové relatívne poradie položiek v rade s využitím personalizovaných údajov používateľa.\cite{Ranking}
 
-Personalizovaný rebríček videí (PVR) je jedným z najzložitejších nástrojov spoločnosti Netflix a neustále sa prispôsobuje na základe spätnej väzby používateľov. Tento model založený na hlbokom učení využíva historické údaje o zvykoch používateľa pri sledovaní na uprednostňovanie obsahu, ktorý ho pravdepodobne najviac zaujíma. Sila PVR spočíva v jeho schopnosti nielen pochopiť minulé správanie, ale aj predpovedať budúce interakcie.\cite{Argoid}\cite{Data}
+    \item \textbf{Systém Top-N Ranking} je založený na kombinácii kolaboratívneho a obsahového filtrovania.\cite{Top}Ako už názov napovedá, poskytuje najlepšie hodnotené filmy, ktoré zodpovedajú vkusu používateľa. Je podobný ako PVR s tým rozdielom, že sa pozerá len na hodnotenie titulu. Netflix využíva Tento algoritmus aj na doplnenie riadkov, ako napríklad  “Pre teba“.\cite{Ranking}
 
-Systém Top-N Ranking – ako už názov napovedá, tento model generuje zoznam N najlepších odporúčaní obsahu pre každého používateľa. Robí to kombináciou kolaboratívneho a obsahového filtrovania. Obsah je zoradený na základe toho, ako dobre zodpovedá preferenciám používateľa, čím sa zabezpečí, aby sa najrelevantnejšie tituly zobrazovali na vrchole obrazovky.\cite{Top}
+    Ďalším algoritmom spoločnosti Netflix je 
+    \item\textbf{Obľúbene medzi používateľmi}, ktorý predpovedá časové trendy na základe globálnych a regionálnych údajov o filmoch a televíznych seriáloch. Vo všeobecnosti existujú dva typy trendov: sezónne a špeciálne.Na základe názvu by ste mohli predpokladať, že čo je čo, ale poďme sa na ne pozrieť bližšie.\cite{Top} 
+    
+    Do sekcie \textbf{sezónnych trendov} sa zvyčajne zaraďujú filmy ako Sám doma alebo Polárny expres, pretože získavajú popularitu v období Vianoc, alebo horory počas Halloween.\cite{Ranking}
 
+    Sekcia \textbf{špeciálne} alebo \textbf{krátkodobé} udalosti môže patriť Pandémiu 2021, ktorá zaznamenala nárast populárnosti dokumentárnych filmov a filmov o infekciách.\cite{Ranking}
 
-Poradie obľúbených filmov je ďalší model hodnotenia, ktorý využíva trendový obsah. Netflix používa tento systém na zaraďovanie filmov na základe ich celosvetovej aj regionálnej popularity. Ukážkovým príkladom bolo obdobie pandémie COVID-19, keď prudko stúpol počet divákov filmu Nákaza.\cite{Top} 
+    \item \textbf{Pozrite sa neskôr}, ide o pomerne zaujímavý algoritmus, ktorý je založený na dvoch kľúčových bodoch.\cite{Ranking} Prvým je, že do tejto časti patria filmy, ktoré ste ešte nedopozerali, zvyčajne televízne seriály s niekoľkými sezónami, ale môžu to byť aj filmy alebo seriály, ktoré ešte neboli dokončené.\cite{Ranking:System} A druhým bodom je, že na základe regionálnych údajov a pomocou kolaboratívneho filtrovania algoritmus zmieša vaše nepozerané filmy s podobnými filmami, ktoré sa páčia iným používateľom.\cite{Top}
+    
+\end{enumerate}
 
+Po tom, ako algoritmy analyzujú vás a vaše správanie, začnú vytvárať vaše personalizované odporúčania, krok za krokom prostredníctvom všetkých parametrov, čo je graficky znázornené na obrázku 4. plynulo prechádzajú z backendu na frontend, takýto proces sa nazýva \textbf{generovanie stránok}.
 
-Zaraďovanie zaujímavého obsahu na neskoršie pozretie
-Netflix používa aj systém hodnotenia, ktorý sa zameriava na zaujímavý obsah, ktorý si používatelia môžu chcieť pozrieť neskôr. Sledovaním tohto správania Netflix zabezpečuje, aby platforma zostala relevantná pre široký vkus používateľov a aby sa mohli vždy vrátiť k predtým sledovanému obsahu.\cite{Top}\cite{Ranking:System}
-
-
-Netflix sa neustále zlepšuje prostredníctvom A/B testovania. Netflix pravidelne testuje varianty svojich odporúčacích algoritmov na rôznych skupinách používateľov a analyzuje, ktoré modely vedú k vyššej angažovanosti a spokojnosti.\cite{Ranking:System}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{Images_tables/Ranking.pdf}
+  \caption{Ranking\cite{Ranking}}
+\end{figure}
 
 \section{Typy Údajov v Netflix}
-Cesta spoločnosti Netflix k personalizácii sa začína zberom údajov. A nejde len o to, aké seriály sa vám páčia. Netflix analyzuje všetko od žánrov, ktoré preferujete, až po režisérov, ktorých sledujete, dĺžku sledovania a dennú dobu. Nie je to len súbor údajov – je to základom schopnosti spoločnosti Netflix prispôsobiť váš zážitok zo sledovania. Vďaka viac ako 1 300 klastrom odporúčaní Netflix vie nielen to, že máte radi thrillery; vie, že máte radi psychologické thrillery so silnými ženskými hrdinkami, ktoré sledujete väčšinou cez víkend večer.\cite{Bennett}\cite{Data}
+A teraz nehovoríme len o tom, aké filmy uprednostňujete, ale o výsledkoch systému, ktorý má viac ako 1 300 skupín odporúčaní skenujúcich vás a vaše zvyky. Netflix vie, že máte radi nielen thrillery;on vie ze zaoberáte sa psychologické thrillery so silnými ženskými hrdinkami, ktoré sledujete väčšinou cez víkend večer. Asi vás zaujíma ako. Odpoveď nájdete v tejto časti.\cite{Bennett}\cite{Data}
+
+\begin{enumerate}
+    \item \textbf{Údaje o účtoch a predplatnom}, na prvý pohľad nie je jasné, prečo Netflix používa tieto údaje, ale je to na lepšiu správu vašich účtov a zaistenie bezpečnosti monitorovaním vašej aktivity na účte.\cite{Type:data}
+
+    \item \textbf{Zariadenie} a \textbf{dáta}, z ktorého sledujete filmy a v akom čase, aby sú vedeli, čo a kedy vám máme odporučiť.\cite{Type:data} Vezmime si, že v práci počas prestávky dve hodiny pozeráte komediálne seriály a potom skončí a večer si na televízore zapnete Netflix, kde pozeráte horory, zhromažďovaním týchto informácií sa vaše odporúčania začnú meniť podľa dátumu a času.
+
+    \item Spoločnosť Netflix zhromažďuje údaje ob  \textbf{históriu dopytov}, aby mohla sledovať trendy a prispôsobovať ponuky obsahu s cieľom zdôrazniť to, čo používatelia hľadajú.\cite{Type:data_hd}
+
+    \item Samozrejme, že spracúvajú \textbf{hodnotenie obsahu} a \textbf{spätnú väzbu} používateľov, aby pochopili kvalitu a hodnotenie obsahu a rozhodli sa, či obsah spracovať alebo odstrániť.\cite{Type:data}
+    
+\end{enumerate}
 
 \section{Záver}
-Odporúčací systém Netflix je zložitý mechanizmus na spracovanie veľkého množstva údajov a preferencií používateľov. Je to kľúčový nástroj na udržanie záujmu používateľov a na to, aby sa nestratili v obrovskej knižnici obsahu.
+Toto je koniec článku a stojí za to ho zhrnúť. Netflix je rýchlo rastúca platforma, ktorá stojí na vrchole odporúčacieho reťazca vďaka svojim algoritmom a pokročilej umelej inteligencii, ktorá je založená na hlbokom učení. Pomocou rôznych metód filtrovania, umelej inteligencie a systémov hodnotenia, ako sú PVR, Top-N Ranking atď. dokáže vytvoriť pre vás najrelevantnejší a najvhodnejší obsah.
+
+Okrem toho spoločnosť Netflix využíva zhromaždené údaje, ako je zariadenie, čas sledovania a poloha, aby pochopila váš vkus a poskytla vám a ostatným používateľom najvhodnejší obsah. Netflix pracuje aj s rozhraním a poskytuje vám miniatúry, ktoré vytvárajú prvý dojem z filmu alebo seriálu a udržiavajú váš záujem.
+
+Spoločnosť Netflix v súčasnosti skúma problém studeného štartu s cieľom vyriešiť ho. Týmto spôsobom sa spoločnosť Netflix snaží vytvoriť čo najpríjemnejší zážitok pre každého používateľa, aby dosiahla väčší úspech na trhu. Okrem toho pokračuje v štúdiu a zdokonaľovaní umelej inteligencie a techník filtrovania na presnejšiu personalizáciu obsahu. 
 
 \bibliography{literatura}
 \bibliographystyle{unsrt} 
